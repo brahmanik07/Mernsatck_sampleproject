@@ -1,8 +1,12 @@
 let express=require('express');
 let router=express.Router();
+let User=require('../models/users');
 //router() used to connect api with commom routes
-router.post('/register',(req,res)=>{
-    res.send("register route called");
+router.post('/register',async (req,res)=>{
+    let data=req.body;
+    let newuser=new User(data);
+    let result=await newuser.save();
+    res.send(result);
 });
 router.post('/login',(req,res)=>{
     res.send("login route called");
