@@ -8,7 +8,9 @@ mongoose.connect('mongodb://localhost:27017/hr_management').then(() => {
 }).catch((err) => {
   console.error("Error connecting to MongoDB:", err);
 });
-app.use(express.json());//used to collect input from user in json format
+app.use(express.json());//used to collect data from body of request
+app.use(express.urlencoded({extended:true}));
+
 app.use('/api/emp',empRoutes);
 app.use('/api/hr',hrRoutes);
 //localhost:3000/api/emp/register =>post

@@ -11,5 +11,5 @@ let userSchema=new mongoose.Schema({
         enum:['employee','hr'],
     }
 });
-let User=mongoose.model('User',userSchema);
-module.exports=User;
+let users=mongoose.model('users',userSchema);
+module.exports={users};

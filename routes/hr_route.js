@@ -1,8 +1,10 @@
 let express=require('express');
 let router=express.Router();
+let {user}=require('../models/users')
 //router() used to connect api with commom routes
-router.get('/viewemp', (req, res) => {
-    res.send("view employees route called");
+router.get('/viewemp', async (req, res) => {
+    let result=await user.find();
+    res.send(result);
 });
 router.post('/assign-task',(req,res)=>{
     res.send("assign task route called");
