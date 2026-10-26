@@ -1,7 +1,9 @@
 let express=require('express');
+let cors=require('cors');
 let app=express();
 let empRoutes=require('./routes/emp_routes');
 let hrRoutes=require('./routes/hr_route');
+app.use(cors());
 let mongoose=require('mongoose');
 mongoose.connect('mongodb://localhost:27017/hr_management').then(() => {
   console.log("Connected to MongoDB");
